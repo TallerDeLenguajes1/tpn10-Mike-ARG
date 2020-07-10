@@ -1,0 +1,13 @@
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.exe
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.deps.json
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.runtimeconfig.json
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.runtimeconfig.dev.json
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.dll
+C:\RepoGit\tp10\TP10\TP10\bin\Debug\netcoreapp3.1\TP10.pdb
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.csprojAssemblyReference.cache
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.AssemblyInfoInputs.cache
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.AssemblyInfo.cs
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.csproj.CoreCompileInputs.cache
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.dll
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.pdb
+C:\RepoGit\tp10\TP10\TP10\obj\Debug\netcoreapp3.1\TP10.genruntimeconfig.cache

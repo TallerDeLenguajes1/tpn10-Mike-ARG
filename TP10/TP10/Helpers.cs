@@ -6,13 +6,13 @@ namespace TP10
 {
     class Helpers
     {
-        enum tipoDeOperacion
+        public enum TipoDeOperacion
         {
             Venta = 0,
             Alquiler = 1,
         }
 
-        enum tipoDePropiedad
+        public enum TipoDePropiedad
         {
             Departamento = 0,
             Casa = 1,
@@ -24,8 +24,8 @@ namespace TP10
         public class Propiedad
         {
             int id;
-            tipoDeOperacion operacion;
-            tipoDePropiedad tipoPropiedad;
+            TipoDeOperacion operacion;
+            TipoDePropiedad tipoPropiedad;
             float tamanio;
             int cantBanios;
             int cantHabitac;
@@ -40,10 +40,10 @@ namespace TP10
             public string Domicilio { get => domicilio; set => domicilio = value; }
             public int Precio { get => precio; set => precio = value; }
             public bool Estado { get => estado; set => estado = value; }
-            private tipoDeOperacion Operacion { get => operacion; set => operacion = value; }
-            private tipoDePropiedad TipoPropiedad { get => tipoPropiedad; set => tipoPropiedad = value; }
+            public TipoDeOperacion Operacion { get => operacion; set => operacion = value; }
+            public TipoDePropiedad TipoPropiedad { get => tipoPropiedad; set => tipoPropiedad = value; }
 
-            float valorDelInmueble()
+            public float valorDelInmueble()
             {
                 float valor;
                 float IVA = precio * 21 / 100;
@@ -51,7 +51,7 @@ namespace TP10
                 float costoTransferencia = 10000;
                 double costos = precio * 0.5 / 100; //costos de sellado y contrato
 
-                if (operacion == tipoDeOperacion.Venta) //Si la operacion es una VENTA
+                if (operacion == TipoDeOperacion.Venta) //Si la operacion es una VENTA
                 {
                     valor = precio + IVA + ingresosBrutos + costoTransferencia;
                 }
