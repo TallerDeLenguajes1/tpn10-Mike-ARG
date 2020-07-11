@@ -51,19 +51,20 @@ namespace TP10
                 Random Rand = new Random();
                 
                 Prop.Id = contador + 1;
-                Prop.Operacion = (TipoDeOperacion)Rand.Next(1);
+                Prop.Operacion = (TipoDeOperacion)Rand.Next(2);
                 Prop.Tamanio = Rand.Next(86) + 15; // en m2
                 Prop.CantBanios = Rand.Next(4) + 1;
-                Prop.CantHabitac = Rand.Next(10) + 1;
+                Prop.CantHabitac = Prop.CantBanios + Rand.Next(10) + 1;
                 Prop.Precio = Rand.Next(200000); //cien millones de pesos
                 Prop.Estado = booleano[Rand.Next(2)];
 
-                StrReader2.WriteLine(Prop.Id + ";" + Prop.Operacion + ";" + Prop.Tamanio + ";" + Prop.CantBanios + ";" + Prop.CantHabitac + ";" + Prop.Precio + ";" +
-                    Prop.Estado + ";");
+                StrReader2.WriteLine(Prop.Id.ToString() + ";" + Prop.Operacion.ToString() + ";" + Prop.Tamanio.ToString() + ";" + Prop.CantBanios.ToString() + ";" + Prop.CantHabitac.ToString() + ";" + Prop.Precio.ToString() + ";" +
+                    Prop.Estado.ToString() + ";");
 
                 Console.WriteLine("Valor de propiedad de ID " + Prop.Id + ": " + Prop.valorDelInmueble());
                 contador++;
             }
+            StrReader2.Close();
 
         }
     }
