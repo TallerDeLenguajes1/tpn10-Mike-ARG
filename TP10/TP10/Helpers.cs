@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace TP10
@@ -62,6 +63,111 @@ namespace TP10
 
                 return valor;
             }
+        }
+    }
+    public static class ConversorDeMorse
+    {
+
+        static Dictionary<string, string> DiccionarioMorse = new Dictionary<string, string>()
+        {
+            {"a", ".-"}, {"b", "-..."}, {"c", "-.-."}, {"d", "-.."}, {"e", "."},
+            {"f", "..-." }, {"g", "--."}, {"h", "...."}, {"i", ".."}, {"j", ".---"},
+            {"k", "-.-" }, {"l", ".-.."}, {"m", "--"}, {"n", "-."}, {"ñ", "--.--"},
+            {"o", "---"}, {"p", ".--."}, {"q", "--.-"}, {"r", ".-."}, {"s", "..."},
+            {"t", "-"}, {"u", "..-"}, {"v", "...-"}, {"w", ".--"}, {"x", "-..-"},
+            {"y", "-.--"}, {"z","--.."}, {"1", ".----"}, {"2", "..---"}, {"3", "...--"},
+            {"4", "....-"}, {"5", "....."}, {"6", "-...."}, {"7", "--..."}, {"8", "---.."},
+            {"9", "----."}, {"0", "-----"}, {" ", "/"}
+        };
+
+
+        public static string MorseATexto(string cadena)
+        {
+            string traduccion = "";
+            string[] Morse = cadena.Split(" ");
+
+            foreach (string simbolo in Morse)
+            {
+                foreach (KeyValuePair<string, string> elemento in DiccionarioMorse)
+                {
+                    if (elemento.Value == simbolo.ToString())
+                    {
+                        traduccion = traduccion + elemento.Key;
+                        //break;
+                    }
+                }
+            }
+
+            return traduccion;
+        }
+
+        public static string TextoAMorse(string cadena)
+        {
+            string traduccion = "";
+
+            cadena = cadena.ToLower();
+
+            foreach (char letra in cadena)
+            {
+                Console.WriteLine(letra);
+                foreach (KeyValuePair<string, string> elemento in DiccionarioMorse)
+                {
+                    if (elemento.Key == letra.ToString())
+                    {
+                        traduccion = traduccion + elemento.Value + " ";
+                        //break;
+                    }
+                }
+            }
+            return traduccion;
+        }
+
+        public static void MorseAAudio(string ArchivoInicial, string ArchivoFinal)
+        {
+            FileStream ArchivoMorse = new FileStream(ArchivoInicial, FileMode.Open);
+            StreamReader StrReader = new StreamReader(ArchivoMorse);
+
+            FileStream ArchivoAudio = new FileStream(ArchivoFinal, FileMode.Create);
+            StreamWriter StrWriter = new StreamWriter(ArchivoAudio);
+
+            string cadena = StrReader.ReadLine();
+            string[] Morse = cadena.Split(" ");
+
+            string cad1 = @"‪c:\Repogit\tp10\punto.mp3";
+            string cad2 = @"c:\Repogit\tp10\raya.mp3";
+
+            byte[] punto = File.ReadAllBytes(cad1);           
+            byte[] raya = File.ReadAllBytes(cad2‪);
+
+            string puntoString = "";
+            string rayaString = "";
+
+            foreach(byte Byt in punto)
+            {
+                puntoString = puntoString + Byt.ToString();
+            }
+
+            foreach (byte Byt in raya)
+            {
+                rayaString = rayaString + Byt.ToString();
+            }
+
+
+            foreach (string letra in Morse)
+            {
+                foreach(char simbolo in letra)
+                {
+                    if (simbolo == '-')
+                    {
+                        StrWriter.Write(Convert.ToString(raya), 0, raya.Length);
+                    } else if (simbolo == '.')
+                    {
+                        StrWriter.Write(Convert.ToString(punto), 0, punto.Length);
+                    }
+                }
+            }
+            StrReader.Close();
+            StrWriter.Close();
         }
     }
 }

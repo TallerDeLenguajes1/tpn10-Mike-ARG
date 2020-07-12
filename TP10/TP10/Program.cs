@@ -67,5 +67,11 @@ namespace TP10
             StrReader2.Close();
 
         }
+
+            string ArchivoMorse = @"c:\RepoGit\‪tp9\Morse\prueba.txt"; //El código Morse que voy a traducir a audio
+            string ArchivoAudio = @"c:\RepoGit\tp10\Archivos\ArchivoMP3.mp3"; //El archivo .mp3 que tendrá el audio producto de la traducción
+
+            ConversorDeMorse.MorseAAudio(ArchivoMorse, ArchivoAudio);
+        }
     }
 }
